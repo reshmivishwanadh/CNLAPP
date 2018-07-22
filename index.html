@@ -12,7 +12,34 @@
   </head>
   <body>
     <h1> MY CNL APP</h1>    <h1> MY CNL APP change is done</h1>
+    <button id="btnValidate1">CLCIK EHRE</button>
 
 <script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+            $(function () {
+                $("#btnValidate1").click(function () {
+                    
+                    $.ajax({
+                        type: "GET",
+                        url: "http://www.creatnlrn.com/api/test/user/divya/100/",
+                        data: '{number: "' + 123 + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (r) {
+                            alert("Valid number.");
+                        },
+                           error: function (r) {
+                            alert("INValid number.");
+                            responseText = jQuery.parseJSON(r.responseText);
+                            alert(responseText.Message);
+                           }
+                    });
+                });
+            });
+
+
+
   </body>
+
 </html>
